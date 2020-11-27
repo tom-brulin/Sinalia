@@ -1,0 +1,1 @@
+start SpriteAtlasPacker.exe -image:ui.png -map:ui.atlas ./Elements

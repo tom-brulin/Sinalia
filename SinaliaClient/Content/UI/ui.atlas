@@ -1,0 +1,55 @@
+Panel
+	0,0,480,96
+	0.5,0.5
+Textbox
+	0,97,164,32
+	0.5,0.5
+Button
+	165,97,164,28
+	0.5,0.5
+Gold_Button_Clicked
+	330,97,23,20
+	0.5,0.5
+Gold_Button_Hover
+	354,97,23,20
+	0.5,0.5
+Gold_Button_Normal
+	378,97,23,20
+	0.5,0.5
+Silver_Button_Clicked
+	402,97,23,20
+	0.5,0.5
+Silver_Button_Hover
+	426,97,23,20
+	0.5,0.5
+Silver_Button_Normal
+	450,97,23,20
+	0.5,0.5
+Gold_Checkbox_Checked
+	330,118,14,14
+	0.5,0.5
+Gold_Checkbox_Unchecked
+	345,118,14,14
+	0.5,0.5
+Silver_Checkbox_Checked
+	360,118,14,14
+	0.5,0.5
+Silver_Checkbox_Unchecked
+	375,118,14,14
+	0.5,0.5
+Cursor
+	390,118,1,10
+	0.5,0.5
+
+Buttons
+	8
+	2,3,4,5,6,7,8
+Checkboxs
+	8
+	9,10,11,12
+Panels
+	8
+	0
+Textboxs
+	8
+	1
