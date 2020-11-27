@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>a699b349-a259-4574-ba9d-542d26c8f29c</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>SN.ProtocolAbstractions</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\Factories\ChatMessageFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\Factories\ClientMessageFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\Factories\IMessageFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\Factories\MasterMessageFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\Factories\ZoneMessageFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\Headers\ChatMessageTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\Headers\MasterMessageTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\Headers\ClientMessageTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\Headers\ZoneMessageTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\IMessageHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\SNMessageData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\IOutgoingMessageService.cs" />
+  </ItemGroup>
+</Project>
