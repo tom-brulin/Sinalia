@@ -12,6 +12,7 @@ namespace SN.ZoneServer
     {
         public static void Main(string[] args)
         {
+            Console.Title = "[ZoneServer] Sinalia";
             IServiceCollection services = new ServiceCollection();
             RegisterServices(services);
             new Application(services);

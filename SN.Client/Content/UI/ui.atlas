@@ -1,0 +1,37 @@
+Button
+	0,0,82,30
+	0.5,0.5
+ButtonDown
+	0,31,82,30
+	0.5,0.5
+ButtonOver
+	0,62,82,30
+	0.5,0.5
+Textbox
+	0,93,80,30
+	0.5,0.5
+Window
+	83,0,50,50
+	0.5,0.5
+Checkbox
+	83,51,30,30
+	0.5,0.5
+CheckboxChecked
+	83,82,30,30
+	0.5,0.5
+Cursor
+	134,0,1,1
+	0.5,0.5
+
+Buttons
+	8
+	0,1,2
+Checkboxs
+	8
+	5,6
+Textboxs
+	8
+	7,3
+Windows
+	8
+	4

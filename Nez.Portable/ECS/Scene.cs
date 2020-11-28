@@ -89,7 +89,7 @@ namespace Nez
 		/// <summary>
 		/// clear color that is used in preRender to clear the screen
 		/// </summary>
-		public Color ClearColor = Color.Black;
+		public Color ClearColor = Color.CornflowerBlue;
 
 		/// <summary>
 		/// clear color for the final render of the RenderTarget to the framebuffer
