@@ -6,10 +6,11 @@
     <SharedGUID>1d985dd8-6e3b-4243-b7be-8d0feb3e8263</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>SN.Core</Import_RootNamespace>
+    <Import_RootNamespace>SN.Global</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Constants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logging\LoggingService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Character.cs" />
   </ItemGroup>
 </Project>

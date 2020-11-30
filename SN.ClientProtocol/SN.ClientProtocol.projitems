@@ -9,10 +9,7 @@
     <Import_RootNamespace>SN.ClientProtocol</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Peers\ZoneClientNetPeer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\OutgoingMessageService.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Messages\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Peers\" />
   </ItemGroup>
 </Project>

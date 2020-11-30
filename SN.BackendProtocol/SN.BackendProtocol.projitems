@@ -9,6 +9,11 @@
     <Import_RootNamespace>SN.BackendProtocol</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Actors\PlayerClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Repositories\ClientRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Authentification\ConnectionValidationService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Authentification\TokenManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Repositories\TokenRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BackendConstants.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Databases\Database.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Databases\GameDb.cs" />
@@ -18,8 +23,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Services\OutgoingMessageService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Messages\Master\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Messages\Chat\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Messages\Zone\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Repositories\" />
   </ItemGroup>
 </Project>

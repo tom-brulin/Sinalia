@@ -33,6 +33,7 @@ namespace SN.Client.UI
             {
                 var container = new Table();
                 container.SetFillParent(true);
+                container.Pad(15);
 
                 foreach (var anchor in anchors)
                 {
@@ -74,9 +75,9 @@ namespace SN.Client.UI
 
         public void CloseAll()
         {
-            foreach (var window in openWindows)
+            for (int i = 0; i < openWindows.Count; i++)
             {
-                Close(window);
+                Close(openWindows[i]);
             }
         }
 
@@ -87,6 +88,30 @@ namespace SN.Client.UI
                 var window = openWindows?.LastItem();
                 Close(window);
             }
+        }
+
+        public void CloseAll(string title)
+        {
+            foreach (var window in openWindows)
+            {
+                if (((Window)window).GetTitleLabel().GetText().Equals(title))
+                {
+                    Close(window);
+                }
+            }
+        }
+
+        public SNWindow Get(string title)
+        {
+            foreach (var window in openWindows)
+            {
+                if (((Window)window).GetTitleLabel().GetText().Equals(title))
+                {
+                    return (SNWindow)window;
+                }
+            }
+
+            return null;
         }
 
     }

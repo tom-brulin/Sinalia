@@ -6,7 +6,7 @@
     <SharedGUID>84b4075d-6911-4dc8-903d-99d7d04ed258</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>SN.CoreAbstractions</Import_RootNamespace>
+    <Import_RootNamespace>SN.GlobalAbstractions</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Logging\ILoggingService.cs" />

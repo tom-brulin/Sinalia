@@ -9,6 +9,7 @@
     <Import_RootNamespace>SN.ProtocolAbstractions</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Authentification\IConnectionValidationService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messages\Factories\ChatMessageFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messages\Factories\ClientMessageFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messages\Factories\IMessageFactory.cs" />
@@ -19,7 +20,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Messages\Headers\ClientMessageTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messages\Headers\ZoneMessageTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messages\IMessageHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\IStatusHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\IUnconnectedMessageHandler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messages\SNMessageData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NetBufferExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Services\IOutgoingMessageService.cs" />
   </ItemGroup>
 </Project>

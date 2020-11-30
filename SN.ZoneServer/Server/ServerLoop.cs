@@ -2,20 +2,24 @@
 using System.Threading;
 using SN.BackendProtocol;
 using SN.GlobalAbstractions.Logging;
+using SN.ZoneServer.Entities;
 
 namespace SN.ZoneServer.Server
 {
     public class ServerLoop
     {
+        private readonly EntitiesProcessor entititesProcessor;
         private readonly IncomingMessageProcessor incomingMessageProcessor;
         private readonly ILoggingService loggingService;
 
         private bool running;
 
         public ServerLoop(
+            EntitiesProcessor entititesProcessor,
             IncomingMessageProcessor incomingMessageProcessor,
             ILoggingService loggingService)
         {
+            this.entititesProcessor = entititesProcessor;
             this.incomingMessageProcessor = incomingMessageProcessor;
             this.loggingService = loggingService;
         }
@@ -33,16 +37,16 @@ namespace SN.ZoneServer.Server
 
             running = true;
 
-            // float deltaTime;
+            float deltaTime;
             long startTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
             int timeToSleep;
 
             while (running)
             {
-                // deltaTime = (DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - startTime) / 1000f;
+                deltaTime = (DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - startTime) / 1000f;
                 startTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
 
-                Loop();
+                Loop(deltaTime);
 
                 timeToSleep = (int)(BackendConstants.Tick30 * 1000 - (DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - startTime));
                 if (timeToSleep >= 0)
@@ -62,10 +66,12 @@ namespace SN.ZoneServer.Server
             loggingService.Log("[Loop Stopped]", LogMessageType.INFO);
         }
 
-        private void Loop()
+        private void Loop(float deltaTime)
         {
             incomingMessageProcessor.ProcessesStatusQueue();
             incomingMessageProcessor.ProcessesDataQueue();
+
+            entititesProcessor.ProcessEntities(deltaTime);
         }
 
     }

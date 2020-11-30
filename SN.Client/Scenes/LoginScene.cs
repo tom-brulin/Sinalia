@@ -1,14 +1,20 @@
 ﻿using SN.Client.UI;
-using SN.Client.UI.Windows;
+using SN.Client.UI.Windows.Authentification;
+using SN.ClientProtocol.Peers;
 
 namespace SN.Client.Scenes
 {
     public class LoginScene : BaseScene
     {
+        private readonly ZoneClientNetPeer zoneClientNetPeer;
         private readonly WindowService windowService;
 
-        public LoginScene(WindowService windowService)
+        public LoginScene(
+            ZoneClientNetPeer zoneClientNetPeer,
+            WindowService windowService) 
+            : base(windowService)
         {
+            this.zoneClientNetPeer = zoneClientNetPeer;
             this.windowService = windowService;
         }
 
@@ -16,7 +22,7 @@ namespace SN.Client.Scenes
         {
             base.OnStart();
 
-            windowService.Open(new LoginWindow(), WindowAnchor.Center);
+            windowService.Open(new LoginWindow(windowService, zoneClientNetPeer), WindowAnchor.Center);
         }
 
     }

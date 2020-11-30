@@ -34,7 +34,7 @@ namespace Nez
 		/// <summary>
 		/// enables/disables pausing when focus is lost. No update or render methods will be called if true when not in focus.
 		/// </summary>
-		public static bool PauseOnFocusLost = true;
+		public static bool PauseOnFocusLost = false;
 
 		/// <summary>
 		/// enables/disables debug rendering

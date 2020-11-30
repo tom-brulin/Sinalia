@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>1ff7d106-7b27-43d9-b3ed-e1dc5776a448</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>SN.Messages</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Master\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Chat\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Zone\Authentification\CharacterLoadedMessageData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\Authentification\CharacterSelectedMessageData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\Authentification\PlayerLoginErrorMessageData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\Authentification\PlayerLoginSuccessMessageData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\Authentification\SendCharactersMessageData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\Entities\CharacterDisconnectedMessageData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\Entities\EntityPositionMessageData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Zone\Authentification\PlayerLoginMessageData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Zone\Authentification\RequestCharactersMessageData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Zone\Authentification\SelectCharacterMessageData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Zone\Players\PlayerDirectionMessageData.cs" />
+  </ItemGroup>
+</Project>

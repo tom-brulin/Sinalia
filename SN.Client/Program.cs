@@ -1,9 +1,17 @@
 ﻿using System;
 using Microsoft.Extensions.DependencyInjection;
+using SN.Client.Network;
+using SN.Client.Network.MessageHandlers.Zone.Authentification;
+using SN.Client.Network.MessageHandlers.Zone.Entities;
+using SN.Client.Network.Zone;
 using SN.Client.Scenes;
 using SN.Client.UI;
+using SN.ClientProtocol.Peers;
+using SN.ClientProtocol.Services;
 using SN.Global.Logging;
 using SN.GlobalAbstractions.Logging;
+using SN.ProtocolAbstractions.Messages.Factories;
+using SN.ProtocolAbstractions.Services;
 
 namespace SN.Client
 {
@@ -28,9 +36,34 @@ namespace SN.Client
 
             #region Scenes
             services.AddTransient<LoginScene>();
+            services.AddTransient<CharacterSelectionScene>();
+            services.AddTransient<GameScene>();
+            #endregion
+
+            #region Network General
+            services.AddSingleton<IncomingMessageProcessor>();
+            services.AddSingleton(typeof(IOutgoingMessageService<>), typeof(OutgoingMessageService<>));
+            #endregion
+
+            #region Network Factories
+            services.AddSingleton<ClientMessageFactory>();
+            #endregion
+
+            #region Zone Network
+            services.AddSingleton<ZoneClientNetPeer>();
+            services.AddSingleton<ZoneClient>();
             #endregion
 
             #region Zone MessageHandlers
+            services.AddTransient<ConnectedMessageHandler>();
+
+            services.AddTransient<PlayerLoginErrorMessageHandler>();
+            services.AddTransient<PlayerLoginSuccessMessageHandler>();
+            services.AddTransient<SendCharactersMessageHandler>();
+            services.AddTransient<CharacterSelectedMessageHandler>();
+
+            services.AddTransient<EntityPositionMessageHandler>();
+            services.AddTransient<CharacterDisconnectedMessageHandler>();
             #endregion
         }
 
@@ -44,6 +77,7 @@ namespace SN.Client
         public Application(IServiceCollection services)
         {
             Services = services.BuildServiceProvider();
+            Services.GetService<ZoneClient>().Start();
             Services.GetService<GameCore>().Run();
         }
 
