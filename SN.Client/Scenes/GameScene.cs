@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Nez;
 using SN.Client.ECS.Components;
 using SN.Client.ECS.Entities;
 using SN.Client.UI;
@@ -20,8 +21,17 @@ namespace SN.Client.Scenes
             this.outgoingMessageService = outgoingMessageService;
         }
 
+        public override void OnStart()
+        {
+            base.OnStart();
+        }
+
         public void LoadCharacter(Character character)
         {
+            var tiledEntity = CreateEntity("tiled-map-entity");
+            var map = Core.Content.LoadTiledMap("Content/Map/Map.tmx");
+            tiledEntity.AddComponent(new TiledMapRenderer(map));
+
             playerEntity = AddEntity(new PlayerEntity());
             playerEntity.Name = character.AccountPersistentId;
         }

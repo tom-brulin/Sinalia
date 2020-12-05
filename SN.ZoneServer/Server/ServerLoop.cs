@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using SN.BackendProtocol;
 using SN.GlobalAbstractions.Logging;
@@ -8,6 +9,7 @@ namespace SN.ZoneServer.Server
 {
     public class ServerLoop
     {
+
         private readonly EntitiesProcessor entititesProcessor;
         private readonly IncomingMessageProcessor incomingMessageProcessor;
         private readonly ILoggingService loggingService;
@@ -37,26 +39,28 @@ namespace SN.ZoneServer.Server
 
             running = true;
 
+            var gameTimer = Stopwatch.StartNew();
+
+            const int framesTarget = 25;
+            const int tickTarget = 1000 / framesTarget;
+
+            long startTime = gameTimer.ElapsedMilliseconds;
             float deltaTime;
-            long startTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
             int timeToSleep;
 
             while (running)
             {
-                deltaTime = (DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - startTime) / 1000f;
-                startTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+                deltaTime = (gameTimer.ElapsedMilliseconds - startTime) / 1000f;
+                startTime = gameTimer.ElapsedMilliseconds;
 
                 Loop(deltaTime);
 
-                timeToSleep = (int)(BackendConstants.Tick30 * 1000 - (DateTimeOffset.UtcNow.ToUnixTimeMilliseconds() - startTime));
+                timeToSleep = (int)(tickTarget - (gameTimer.ElapsedMilliseconds - startTime));
+
                 if (timeToSleep >= 0)
-                {
                     Thread.Sleep(timeToSleep);
-                }
                 else
-                {
                     loggingService.Log("Server is running " + Math.Abs(timeToSleep) + "ms behind", LogMessageType.WARNING);
-                }
             }
         }
 

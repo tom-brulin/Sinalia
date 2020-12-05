@@ -36,7 +36,7 @@ namespace SN.Client.Network.Zone
 
             loggingService.Log("[Start] Zone Server", LogMessageType.INFO);
 
-            zoneClientNetPeer.Configuration.SimulatedMinimumLatency = 0.05f;
+            //zoneClientNetPeer.Configuration.SimulatedMinimumLatency = 0.05f;
             zoneClientNetPeer.Configuration.EnableMessageType(NetIncomingMessageType.StatusChanged);
             zoneClientNetPeer.Configuration.EnableMessageType(NetIncomingMessageType.Data);
             zoneClientNetPeer.Configuration.EnableMessageType(NetIncomingMessageType.UnconnectedData);

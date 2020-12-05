@@ -153,6 +153,9 @@
     </None>
     <None Include="app.config" Visible="false" />
     <None Include="app.manifest" Visible="false" />
+    <None Include="Content\Map\Map.tmx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Content\nez\effects\Bevels.mgfxo" />
     <None Include="Content\nez\effects\BloomCombine.mgfxo" />
     <None Include="Content\nez\effects\BloomExtract.mgfxo" />
@@ -221,6 +224,9 @@
     <Folder Include="Network\MessageHandlers\Chat\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Map\tiles.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Content\Player.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

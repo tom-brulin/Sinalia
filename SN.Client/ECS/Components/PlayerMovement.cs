@@ -15,12 +15,14 @@ namespace SN.Client.ECS.Components
         private VirtualIntegerAxis xAxisInput;
         private VirtualIntegerAxis yAxisInput;
         private Vector2 previousDirection;
+        public Vector2 position;
 
         public override void OnAddedToEntity()
         {
             SetupInput();
             mover = Entity.GetComponent<Mover>();
             previousDirection = Vector2.Zero;
+            position = Vector2.Zero;
         }
 
         public override void OnRemovedFromEntity()
@@ -45,18 +47,19 @@ namespace SN.Client.ECS.Components
 
         void IUpdatable.Update()
         {
-            /*
+            
             var moveDirection = new Vector2(xAxisInput.Value, yAxisInput.Value);
             
             if (moveDirection != Vector2.Zero)
             {
                 moveDirection.Normalize();
                 var movement = moveDirection * moveSpeed * Time.DeltaTime;
-
-                mover.Move(movement, out _);
-            }*/
+                position += movement;
+            }
             
         }
+
+        private int i = 0;
 
         public void SendDirection(IOutgoingMessageService<ZoneClientNetPeer> outgoingMessageService)
         {
@@ -67,10 +70,16 @@ namespace SN.Client.ECS.Components
 
             if (!previousDirection.Equals(direction))
             {
-                var playerDirectionMessageData = new PlayerDirectionMessageData();
-                playerDirectionMessageData.X = direction.X;
-                playerDirectionMessageData.Y = direction.Y;
-                outgoingMessageService.Send(playerDirectionMessageData);
+                if (i < 10)
+                {
+                    var playerDirectionMessageData = new PlayerDirectionMessageData();
+                    playerDirectionMessageData.X = direction.X;
+                    playerDirectionMessageData.Y = direction.Y;
+                    outgoingMessageService.Send(playerDirectionMessageData);
+
+                    System.Console.WriteLine(position);
+                    //i++;
+                }
             }
 
             previousDirection = direction;

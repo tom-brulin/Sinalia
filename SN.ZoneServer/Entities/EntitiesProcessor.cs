@@ -39,10 +39,11 @@ namespace SN.ZoneServer.Entities
                 entityPositionMesageData.X = p.Position.X;
                 entityPositionMesageData.Y = p.Position.Y;
                 outgoingMessageService.Send(entityPositionMesageData, playerRepository.GetPlayersConnection(new List<Player>(playerRepository.Players.Values)));
-                System.Console.WriteLine(p.Position.X + " " + p.Position.Y + " " + p.Velocity.X + " " + p.Velocity.Y);
 
                 p.OldPosition.X = p.Position.X;
                 p.OldPosition.Y = p.Position.Y;
+
+                System.Console.WriteLine(p.Position.X + " " + p.Position.Y);
             }
         }
 

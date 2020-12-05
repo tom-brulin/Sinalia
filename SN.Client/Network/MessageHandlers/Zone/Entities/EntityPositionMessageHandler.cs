@@ -32,7 +32,7 @@ namespace SN.Client.Network.MessageHandlers.Zone.Entities
                 entity.Name = entityPositionMessageData.Uid;
                 gameScene.AddEntity(entity);
             }
-
+            
             entity.SetPosition(new Vector2(entityPositionMessageData.X, entityPositionMessageData.Y));
         }
 
