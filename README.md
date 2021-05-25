@@ -12,16 +12,16 @@ Il y aura un serveur par monde de jeu, c'est à dire qu'a chaque changement de r
 Et enfin le serveur principal, le serveur monde qui gere la transition entre les différents serveur de Zone.
 
 ## Explications des différents projets
-Lidgren.Network -> Bibliotheque réseau
-Nez.Portable -> Framework qui ajoute une surcouche à Monogame
-SN.BackendProtocols -> Projet qui gere la partie réseau coté serveur
-SN.Client -> Projet du client (contient toute la partie graphique)
-SN.ClientProtocol -> Projet qui gere la partie réseau coté client
-SN.Core -> Projet qui est le core du jeu (commun au client et serveur)
-SN.CoreAbstractions -> Projet abstrait du core
-SN.Messages -> Projet contenant les messages réseaux
-SN.ProtocolAbstractions -> Projet abstrait pour le réseau
-SN.ZoneServer -> Projet du serveur
+- Lidgren.Network -> Bibliotheque réseau
+- Nez.Portable -> Framework qui ajoute une surcouche à Monogame
+- SN.BackendProtocols -> Projet qui gere la partie réseau coté serveur
+- SN.Client -> Projet du client (contient toute la partie graphique)
+- SN.ClientProtocol -> Projet qui gere la partie réseau coté client
+- SN.Core -> Projet qui est le core du jeu (commun au client et serveur)
+- SN.CoreAbstractions -> Projet abstrait du core
+- SN.Messages -> Projet contenant les messages réseaux
+- SN.ProtocolAbstractions -> Projet abstrait pour le réseau
+- SN.ZoneServer -> Projet du serveur
 
 ## Technologies utilisées
 - Monogame / Nez
