@@ -1,7 +1,7 @@
 # Sinalia
 2D MMORPG using Monogame Framework
 
-## Fonctionnement actuel du projet :
+## Fonctionnement actuel du projet
 Le client se connecte à un serveur en l'occurrence ZoneServer afin de se connecter et de jouer.
 
 ## Comment le projet va évouluer ?
